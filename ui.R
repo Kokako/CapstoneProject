@@ -1,12 +1,15 @@
+library(shiny)
+library(shinydashboard)
 
 dashboardPage(
+    skin = "purple",
     dashboardHeader(title = "Urbane Dictionary"),
     dashboardSidebar(
         sidebarMenu(
             menuItem("Text Prediction", tabName = "textpredict", icon = icon("rocket")),
             menuItem("About", tabName = "about", icon = icon("info")),
             menuItem("How To Use", tabName = "howto", icon = icon("question")),           
-            menuItem("Source code", icon = icon("code"))
+            menuItem("Source code", icon = icon("code"), href = "https://github.com/Kokako/CapstoneProject")
         )
         ),
     dashboardBody(
@@ -26,7 +29,11 @@ dashboardPage(
                     ),
             tabItem(tabName = "about",
                     h2("About The Urbane Dictionary"),
-                    p("The Urbane Dictionary uses advanced data science techniques to predict the next word in your sentence.")
+                    p("Smartphones are becoming ubiquitous, with nearly half the adult population owning one. However, 
+                        the small screen size of most smartphones presents a challenge when typing: pressing each letter 
+                        individually is error-prone, as the touch screen does not allow for as much accuracy as a physical keyboard.
+                        Enter predictive texting: as you type, the next word in your sentence is predicted and, if selected, added into your 
+                        text. The Urbane Dictionary is the latest in predictive text technology. It features state-of-the-art data science techniques, training on millions of text samples and beautiful, user-friendly design.")
                     ),
             tabItem(tabName = "howto",
                     h2("Instructions"),

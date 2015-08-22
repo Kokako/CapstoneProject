@@ -38,12 +38,16 @@ getBGrams <- function(word1){
 }
 
 getPredictions <- function(b, t, q){
+    ##use most common words if no n-grams
+    commonwords <- c("the", "and", "for")
+    common <- data.frame(prob=c(1:3),nextword=commonwords)
+    
     if(missing(t) & missing(q)){
-        words <- b
+        words <- rbind(b, common)
     } else if(missing(q)){
-        words <- rbind(t, b)
+        words <- rbind(t, b, common)
     } else {
-        words <- rbind(q, t, b)
+        words <- rbind(q, t, b, common)
     }
     
     words <- words[!duplicated(words$nextword),]
